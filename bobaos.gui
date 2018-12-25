@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>bobaos</project>
+    <designer>
+    </designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>assets</imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="button" name=".newtheme_1[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #E10000; color: #FFFFFF; font-size: 14px; font-name: 'CourierNewPSMT'; font-family: 'Courier New'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_1[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=42); -moz-opacity:0.42; opacity: 0.42; background-color: #FF0000; color: #FFFFFF; font-size: 14px; font-name: 'CourierNewPSMT'; font-family: 'Courier New'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".newtheme_2"><![CDATA[background-color: #2D2D2D;]]></theme>
+    <theme type="gauge" name=".horizontal[state='0']"><![CDATA[ background-image: url(gauge_track_off.png);]]></theme>
+    <theme type="gauge" name=".horizontal[state='1']"><![CDATA[ background-image: url(gauge_track_on.png);]]></theme>
+    <theme type="text" name=".white20cc"><![CDATA[ color: #FFFFFF; font-size: 20px; font-name: 'CourierNewPSMT'; font-family: 'Courier New'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="js/wsClient.js" />
+    <script name="js/userMain.js" />
+  </scripts>
+  <page name="Startup" folder="" j="0" tags="" transition="None" subtype="None" time="0" ease="" start="1">
+    <portrait t="newtheme_2" />
+    <landscape t="newtheme_2">
+      <btn j="10" x="63" y="42" w="179" h="68" t="newtheme_1" flip="None" sim="0" l="0" s="1" tags="" js="toggleDatapoint(10)">
+        <inactive s="0">toggle d#10
+(gui handler)</inactive>
+        <active s="0">toggle d#10
+(gui handler)</active>
+      </btn>
+      <slider j="11" d="0" x="78" y="259" w="370" h="22" min="0" max="100" decimals="0" unit="decimal" t="horizontal" sim="0" l="0" tags="" />
+      <txt j="1" x="705" y="67" w="100" h="100" t="white20cc" wrap="False" l="0" tags="">--.-</txt>
+      <txt j="0" x="614" y="18" w="269" h="58" t="white20cc" wrap="False" l="0" tags="">Current Temp d#1
+from bobaosCallback</txt>
+      <txt j="0" x="72" y="188" w="377" h="60" t="white20cc" wrap="False" l="0" tags="">Dimming d#11
+js handler</txt>
+      <btn j="2" x="279" y="42" w="179" h="68" t="newtheme_1" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">toggle d#2
+(js handler)</inactive>
+        <active s="0">toggle d#2
+(js handler)</active>
+      </btn>
+    </landscape>
+  </page>
+</gui>
