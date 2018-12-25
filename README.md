@@ -27,3 +27,12 @@ Controlling datapoints in this example done mainly via JavaScript. As an example
 For feedbacks use `bobaosCallback` and `processOneValue` function.
 
 This example don't cover all bobaos features, so, if you are interested, you can study [`assets/js/wsClient.js`](./assets/js/wsClient.js) file.
+
+## Detailed instructions
+
+If you want to install bobaos on clean system detailed instructions can be found on [bobaoskit.github.io](https://bobaoskit.github.io).
+
+Tested hardware: 
+
+1. Single board computers: RaspberryPi, BeagleBoard black, NanoPi NEO Plus2, Asus Tinker Board S.
+2. BAOS modules: 838 kBerry, 830 module.
