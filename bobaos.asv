@@ -8,8 +8,7 @@
       <landscape width="1024" height="768" />
     </size>
     <autoposition />
-    <imagefolder>
-    </imagefolder>
+    <imagefolder>assets</imagefolder>
     <debug loaderrors="0" connectionerrors="0" />
   </properties>
   <themes>
@@ -21,8 +20,8 @@
     <theme type="text" name=".white20cc"><![CDATA[ color: #FFFFFF; font-size: 20px; font-name: 'CourierNewPSMT'; font-family: 'Courier New'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
   <scripts>
-    <script name="assets/js/wsClient.js" />
-    <script name="assets/js/userMain.js" />
+    <script name="js/wsClient.js" />
+    <script name="js/userMain.js" />
   </scripts>
   <page name="Startup" folder="" j="0" tags="" transition="None" subtype="None" time="0" ease="" start="1">
     <portrait t="newtheme_2" />
