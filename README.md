@@ -2,7 +2,7 @@
 
 ## Intro
 
-This module will allow you to control KNX datapoints with help of [Weinzirl BAOS modules](https://weinzierl.de/index.php/en/all-knx/knx-module-en)
+This module will allow you to control KNX datapoints with help of [Weinzierl BAOS modules](https://weinzierl.de/index.php/en/all-knx/knx-module-en)
 
 ## Hardware installation
 
