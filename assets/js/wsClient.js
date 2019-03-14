@@ -6,6 +6,7 @@ var BobaosWsClient = function(parameters, callback) {
   var _reqs = [];
 
   self.connect = function(cb) {
+    _reqs = [];
     self.socket = new WebSocket(self.url);
     if (typeof cb === "function") {
       self.socket.onopen = cb;
