@@ -5,13 +5,11 @@ var BobaosWsClient = function(parameters, callback) {
   // store requests and callbacks
   var _reqs = [];
 
-  self.connect = function() {
+  self.connect = function(cb) {
     self.socket = new WebSocket(self.url);
-    self.socket.onopen = function() {
-      // your code here
-      CF.log("Connection opened");
-      _reqs = [];
-    };
+    if (typeof cb === "function") {
+      self.socket.onopen = cb;
+    }
     self.socket.onmessage = function(msg) {
       // parse message and then callback
       try {
@@ -60,6 +58,10 @@ var BobaosWsClient = function(parameters, callback) {
       CF.log("Connection error occured.");
       CF.log(JSON.stringify(err));
     };
+  };
+  
+  self.closeConnection = function() {
+    return self.socket.close();
   };
 
   self.sendObject = function(data) {
