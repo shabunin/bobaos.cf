@@ -139,8 +139,40 @@ var bobaosCallback = function(method, payload) {
 CF.userMain = function() {
   CF.log("starting bobaos.cf");
   bobaos = BobaosWsClient(bobaosParams, bobaosCallback);
-  bobaos.connect();
-  // register listeners for joins
+  bobaos.connect(function (event) {
+    // send read request for desired datapoints
+    bobaos.readValue([1, 2, 3], function(err, res) {
+      if (err) {
+        return CF.log("error while reading values: " + err.message);
+      }
+      CF.log("read request has been sent");
+    });
+  });
+    // if iPad goes to sleep, close connection
+  CF.watch(CF.GUISuspendedEvent, function() {
+    CF.log("GUI suspended, closing bobaos ws");
+    bobaos.closeConnection();
+  });
+  
+  // if it wakes up, reconnect
+  CF.watch(CF.GUIResumedEvent, function() {
+    CF.log("GUI resumed, opening ws again");
+    
+    // call method to be sure connection is closed
+    bobaos.closeConnection();
+    // connect again
+    bobaos.connect(function (event) {
+      // send read request for desired datapoints
+      bobaos.readValue([1, 2, 3], function(err, res) {
+        if (err) {
+          return CF.log("error while reading values: " + err.message);
+        }
+        CF.log("read request has been sent");
+      });
+    });
+  });
+  
+  // register listeners for gui joins
   // first, for analog slider to send 0-255 value on bus
   CF.watch(CF.ObjectReleasedEvent, "a11", function(join, value, tokens) {
     var convertedValue = Math.floor((value * 255) / 65535);
@@ -152,6 +184,7 @@ CF.userMain = function() {
       CF.log("set slider value 11: success");
     });
   });
+  
   // now, for join 2
   CF.watch(CF.ObjectPressedEvent, "d2", function(join, value, tokens) {
     toggleDatapoint(2, function(err, res) {
